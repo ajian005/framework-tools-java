@@ -1,0 +1,16 @@
+server:
+  port: 8080 #服务端口
+
+spring:
+  application:
+    name: api-gateway-server #指定服务名
+
+  #配置SpringCloud Gateway的路由
+  cloud:
+    gateway:
+      routes:
+      #配置路由： 路由id路由到微服务的uri,断言(判断条件)
+        - id: after_route
+          uri: https://www.163.com
+          predicates:
+            - Path=/product/**
